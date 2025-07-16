@@ -102,6 +102,13 @@ check_datestyle(char **newval, void **extra, GucSource source)
 			newDateStyle = USE_POSTGRES_DATES;
 			have_style = true;
 		}
+		else if (pg_strncasecmp(tok, "XSD", 8) == 0)
+		{
+			if (have_style && newDateStyle != USE_XSD_DATES)
+				ok = false;		/* conflicting styles */
+			newDateStyle = USE_XSD_DATES;
+			have_style = true;
+		}
 		else if (pg_strcasecmp(tok, "GERMAN") == 0)
 		{
 			if (have_style && newDateStyle != USE_GERMAN_DATES)

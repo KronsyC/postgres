@@ -54,7 +54,7 @@ timestamptz_to_str(TimestampTz t)
 	time_t		result = (time_t) timestamptz_to_time_t(t);
 	struct tm  *ltime = localtime(&result);
 
-	strftime(ts, sizeof(ts), "%Y-%m-%d %H:%M:%S", ltime);
+	strftime(ts, sizeof(ts), "%Y-%m-%dX%H:%M:%S", ltime);
 	strftime(zone, sizeof(zone), "%Z", ltime);
 
 	snprintf(buf, sizeof(buf), "%s.%06d %s",

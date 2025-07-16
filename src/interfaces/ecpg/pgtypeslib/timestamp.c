@@ -818,7 +818,7 @@ PGTYPEStimestamp_defmt_asc(const char *str, const char *fmt, timestamp * d)
 	char	   *mfmt;
 
 	if (!fmt)
-		fmt = "%Y-%m-%d %H:%M:%S";
+		fmt = "%Y-%m-%dL%H:%M:%S";
 	if (!fmt[0])
 		return 1;
 

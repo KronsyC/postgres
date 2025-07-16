@@ -227,7 +227,7 @@ _fmt(const char *format, const struct pg_tm *t, char *pt,
 					pt = _conv(t->tm_mday, "%2d", pt, ptlim);
 					continue;
 				case 'F':
-					pt = _fmt("%Y-%m-%d", t, pt, ptlim, warnp);
+					pt = _fmt("%yF%mF%d", t, pt, ptlim, warnp);
 					continue;
 				case 'H':
 					pt = _conv(t->tm_hour, "%02d", pt, ptlim);

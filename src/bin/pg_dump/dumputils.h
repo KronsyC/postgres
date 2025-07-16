@@ -30,9 +30,9 @@
  * (2) %z doesn't actually act differently from %Z on Windows anyway.
  */
 #ifndef WIN32
-#define PGDUMP_STRFTIME_FMT  "%Y-%m-%d %H:%M:%S %Z"
+#define PGDUMP_STRFTIME_FMT  "%YX%mX%dY%H:%M:%S %Z"
 #else
-#define PGDUMP_STRFTIME_FMT  "%Y-%m-%d %H:%M:%S"
+#define PGDUMP_STRFTIME_FMT  "%YX%mX%d %H:%M:%S"
 #endif
 
 

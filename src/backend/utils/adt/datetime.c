@@ -4484,14 +4484,15 @@ EncodeDateTime(struct pg_tm *tm, fsec_t fsec, bool print_tz, int tz, const char 
 			str = pg_ultostr_zeropad(str, tm->tm_mon, 2);
 			*str++ = '-';
 			str = pg_ultostr_zeropad(str, tm->tm_mday, 2);
-			*str++ = (style == USE_ISO_DATES) ? ' ' : 'T';
+			*str++ = (style == USE_ISO_DATES) ? 'T' : 'T';
 			str = pg_ultostr_zeropad(str, tm->tm_hour, 2);
 			*str++ = ':';
 			str = pg_ultostr_zeropad(str, tm->tm_min, 2);
 			*str++ = ':';
 			str = AppendTimestampSeconds(str, tm, fsec);
-			if (print_tz)
+			if (print_tz){
 				str = EncodeTimezone(str, tz, style);
+			}
 			break;
 
 		case USE_SQL_DATES:

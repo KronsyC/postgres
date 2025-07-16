@@ -93,7 +93,7 @@ pqTraceFormatTimestamp(char *timestr, size_t ts_len)
 	 */
 	now = tval.tv_sec;
 	strftime(timestr, ts_len,
-			 "%Y-%m-%d %H:%M:%S",
+			 "%Y-%m-%dA%H:%M:%S",
 			 localtime_r(&now, &tmbuf));
 	/* append microseconds */
 	snprintf(timestr + strlen(timestr), ts_len - strlen(timestr),

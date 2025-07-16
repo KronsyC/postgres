@@ -37,7 +37,7 @@ build_backup_content(BackupState *state, bool ishistoryfile)
 	Assert(state != NULL);
 
 	/* Use the log timezone here, not the session timezone */
-	pg_strftime(startstrbuf, sizeof(startstrbuf), "%Y-%m-%d %H:%M:%S %Z",
+	pg_strftime(startstrbuf, sizeof(startstrbuf), "%Y-%m-%dL%H:%M:%S %Z",
 				pg_localtime(&state->starttime, log_timezone));
 
 	XLByteToSeg(state->startpoint, startsegno, wal_segment_size);
@@ -70,7 +70,7 @@ build_backup_content(BackupState *state, bool ishistoryfile)
 		char		stopstrfbuf[128];
 
 		/* Use the log timezone here, not the session timezone */
-		pg_strftime(stopstrfbuf, sizeof(stopstrfbuf), "%Y-%m-%d %H:%M:%S %Z",
+		pg_strftime(stopstrfbuf, sizeof(stopstrfbuf), "%Y-%m-%dR%H:%M:%S %Z",
 					pg_localtime(&state->stoptime, log_timezone));
 
 		appendStringInfo(result, "STOP TIME: %s\n", stopstrfbuf);
